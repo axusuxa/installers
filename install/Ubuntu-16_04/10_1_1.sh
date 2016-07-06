@@ -215,7 +215,7 @@ apt-get upgrade -yqq
 # Install required software and dependencies required by ZPanel.
 # We disable the DPKG prompts before we run the software install to enable fully automated install.
 export DEBIAN_FRONTEND=noninteractive
-apt-get install -qqy mysql-server mysql-server apache2 libapache2-mod-php libapache2-mod-bw php-common php-cli php-mysql php-gd php-mcrypt php-curl php-pear php-imap php-xmlrpc php-xsl db5.3-util zip webalizer build-essential bash-completion dovecot-mysql dovecot-imapd dovecot-pop3d dovecot-common dovecot-managesieved dovecot-lmtpd postfix postfix-mysql libsasl2-modules-sql libsasl2-modules proftpd-mod-mysql bind9 bind9utils
+apt-get install -qqy mysql-server mysql-server apache2 libapache2-mod-php libapache2-mod-bw php-common php-cli php-mysql php-gd php-mcrypt php-mbstring php-curl php-pear php-imap php-xmlrpc php-xsl db5.3-util zip webalizer build-essential bash-completion dovecot-mysql dovecot-imapd dovecot-pop3d dovecot-common dovecot-managesieved dovecot-lmtpd postfix postfix-mysql libsasl2-modules-sql libsasl2-modules proftpd-mod-mysql bind9 bind9utils
 
 # Generation of random passwords
 password=`passwordgen`;
