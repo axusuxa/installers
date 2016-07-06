@@ -3,7 +3,7 @@
 # OS VERSION: Ubuntu Server 12.04.x LTS
 # ARCH: x32_64
 
-ZPX_VERSION=10.1.1
+ZPX_VERSION=master
 
 # Official ZPanel Automated Installation Script
 # =============================================
@@ -61,7 +61,7 @@ echo "Detected : $OS  $VER  $BITS"
 if [ "$OS" = "Ubuntu" ] && [ "$VER" = "16.04" ]; then
   echo "Ok."
 else
-  echo "Sorry, this installer only supports the installation of ZPanel on Ubuntu 12.04."
+  echo "Sorry, this installer only supports the installation of ZPanel on Ubuntu 16.04."
   exit 1;
 fi
 
@@ -86,7 +86,7 @@ passwordgen() {
 echo -e ""
 echo -e "##############################################################"
 echo -e "# Welcome to the Official ZPanelX Installer for Ubuntu       #"
-echo -e "# Server 12.04.x LTS                                         #"
+echo -e "# Server 16.04.x LTS                                         #"
 echo -e "#                                                            #"
 echo -e "# Please make sure your VPS provider hasn't pre-installed    #"
 echo -e "# any packages required by ZPanelX.                          #"
@@ -262,6 +262,7 @@ sed -i "s|YOUR_ROOT_MYSQL_PASSWORD|$password|" /etc/zpanel/panel/cnf/db.php
 mysql -u root -p$password -e "DROP DATABASE test";
 mysql -u root -p$password -e "DELETE FROM mysql.user WHERE User='root' AND Host != 'localhost'";
 mysql -u root -p$password -e "DELETE FROM mysql.user WHERE User=''";
+mysql -u root -p$password -e "GRANT ALL ON *.* to zroot@'localhost' identified by '$password' WITH GRANT OPTION";
 mysql -u root -p$password -e "FLUSH PRIVILEGES";
 mysql -u root -p$password -e "CREATE SCHEMA zpanel_roundcube";
 cat /etc/zpanel/configs/zpanelx-install/sql/*.sql | mysql -u root -p$password
