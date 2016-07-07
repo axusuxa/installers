@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# OS VERSION: Ubuntu Server 12.04.x LTS
+# OS VERSION: Ubuntu Server 16.04.x LTS
 # ARCH: x32_64
 
 ZPX_VERSION=master
