@@ -342,7 +342,7 @@ sed -i 's|Include sites-enabled/||' /etc/apache2/apache2.conf
 chown -R www-data:www-data /var/zpanel/temp/
 if ! grep -q "127.0.0.1 "$fqdn /etc/hosts; then echo "127.0.0.1 "$fqdn >> /etc/hosts; fi
 if ! grep -q "apache ALL=NOPASSWD: /etc/zpanel/panel/bin/zsudo" /etc/sudoers; then echo "apache ALL=NOPASSWD: /etc/zpanel/panel/bin/zsudo" >> /etc/sudoers; fi
-a2enmod rewrite
+a2enmod rewrite ssl headers
 service apache2 restart
 
 # PHP specific installation tasks...
